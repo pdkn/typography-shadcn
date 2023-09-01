@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeaderWithNav from "@/components/HeaderWithNav.astro"
 import { getEntry } from "astro:content";
 
 const intro = await getEntry("home", "code");
@@ -16,15 +17,14 @@ import { Button, buttonVariants } from "@/components/ui/button";
 ---
 
 <Layout title="Typography for Shadcn UI.">
-  <main class="flex flex-col items-center text-center">
-    <H1 family="display" padding="lg" className="px-4 md:px-20">
-      <span class="text-gradient">Typography for Shadcn UI</span>
-    </H1>
+  <HeaderWithNav />
+  <main class="flex flex-col items-center">
+    
 
     <H2 padding="md">
       Demo idea how to add typography to conform to a Design System.
     </H2>
-    <P className="text-left">
+    <P >
       To get started, cli <code>npm run dev</code><br /><br />
       Navigate to the dev only route <code>typography-test-harness</code> to play
       around with options.<br /><br />
@@ -63,13 +63,6 @@ import { Button, buttonVariants } from "@/components/ui/button";
       </Button>
     </div>
 
-    <div class="pt-12">
-      <a
-        href="https://github.com/pdkn/typography-shadcn"
-        class={`${typographyVariants({ reveal: "animate" })}`}
-        ><img src="/github-mark.svg" />
-      </a>
-    </div>
     <div
       class={`hidden md:block code mt-12 text-left ${typographyVariants({
         reveal: "animate",
@@ -82,28 +75,12 @@ import { Button, buttonVariants } from "@/components/ui/button";
   </main>
 </Layout>
 <style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 860px;
-    max-width: calc(100% - 2rem);
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-
-  .code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background-color: hsl(var(--muted));
-    color: var(--color-grey);
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
+ main {
+  margin: auto;
+  padding: 1rem;
+  width: 860px;
+  max-width: calc(100% - 2rem);
+  font-size: 20px;
+  line-height: 1.6;
+} 
 </style>

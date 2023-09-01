@@ -1,0 +1,32 @@
+---
+import {
+  H1,
+  H2,
+  P,
+  Small,
+  typographyVariants,
+} from "@/components/ui/typography";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+---
+<header class="bg-purple-950">
+    <nav
+        class="flex items-center justify-end gap-3 w-screen py-8 px-16"
+    >
+    <H1 family="display" className="px-4 md:px-2 flex-grow basis-1 text-center">
+        <span class="text-gradient">Typography for Shadcn UI</span>
+      </H1>
+    <div>
+        <a
+          href="https://github.com/pdkn/typography-shadcn"
+          class={`${typographyVariants({ reveal: "animate" })}`}
+          ><img 
+          src="/github-mark.svg"
+          width={40}
+          height={40}
+           />
+        </a>
+      </div>
+    </nav>
+    <Separator />
+</header>
