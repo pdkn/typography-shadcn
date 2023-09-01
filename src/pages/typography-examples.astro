@@ -17,7 +17,7 @@ const reveal = typographyVariants({ reveal: "animate", family:"mono", size:'body
 const classes = {
   reveal: reveal,
   code:`my-2 md:my-4 ${reveal}`,
-  exampleItem: `flex flex-col mx-4 w-screen md:mx-20 md:px-20 ${reveal}`
+  exampleItem: `flex flex-col px-4 w-screen md:px-20 ${reveal}`
 }
 ---
 
@@ -89,7 +89,7 @@ const classes = {
         <code class={classes.code} >&lt; H6 &gt;</code>
         <H6>My H6 Heading</H6>
       </div>
-      <div class={classes.exampleItem}>
+      <div class={`max-w-[640px] self-start ${classes.exampleItem}`}>
         <code class={classes.code} >&lt; P &gt;</code>
         <P>
           My P Paragraph | Lorem ipsum dolor sit amet consectetur. Aliquam vitae
@@ -100,7 +100,7 @@ const classes = {
           Cursus et aliquet leo eu. Non.
         </P>
       </div>
-      <div class={classes.exampleItem}>
+      <div class={`max-w-[640px] self-start ${classes.exampleItem}`}>
         <code class={classes.code} >&lt; P family='sans' &gt;</code>
         <P family="sans">
           My P Paragraph | Sans Lorem ipsum dolor sit amet consectetur. Aliquam
@@ -111,7 +111,7 @@ const classes = {
           a. Cursus et aliquet leo eu. Non.
         </P>
       </div>
-      <div class={classes.exampleItem}>
+      <div class={`max-w-[640px] self-start ${classes.exampleItem}`}>
         <code class={classes.code} >&lt; P className='text-orange-700' &gt;</code>
         <P className="text-orange-700">
           My P Paragraph | Custom color Lorem ipsum dolor sit amet consectetur.
@@ -122,7 +122,7 @@ const classes = {
           sapien non etiam a. Cursus et aliquet leo eu. Non.
         </P>
       </div>
-      <div class={classes.exampleItem}>
+      <div class={`max-w-[640px] self-start ${classes.exampleItem}`}>
         <code class={classes.code} >&lt; Small &gt;</code>
         <Small>
           My Legal small print | Lorem ipsum dolor sit amet consectetur. Aliquam
