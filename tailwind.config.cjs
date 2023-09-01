@@ -14,7 +14,8 @@ module.exports = {
       fontFamily: {
         serif: ['IBM Plex Serif', 'serif'],
         sans: ['PT Sans', 'sans-serif'],
-        display: ['Noto Sans Display', 'sans-serif'],  
+        display: ['Noto Sans Display', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular'],
       },
       colors: {
         charcoal: "hsl(var(--color-charcoal-hsl) / <alpha-value>)",
