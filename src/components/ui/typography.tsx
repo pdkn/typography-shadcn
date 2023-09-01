@@ -16,7 +16,7 @@ const typographyVariants = cva("", {
       p: "",
     },
     size: {
-      display: "text-[50px]/[58px] md:text-[62px]/[70px]",
+      display: "text-[50px]/[58px] md:text-[3.875em]/[70px]",
       "heading-1":
         "text-[32px]/[36px] tracking-tight md:tracking-normal md:text-[48px]/[58px]",
       "heading-2": "text-[32px]/tight md:text-[40px]/tight",
@@ -32,6 +32,7 @@ const typographyVariants = cva("", {
       serif:  "font-serif",
       sans: "font-sans",
       display: "font-display",
+      mono: "font-mono",
     },
     weight: {
         thin:   "font-thin",

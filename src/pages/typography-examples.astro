@@ -13,10 +13,11 @@ import {
   typographyVariants,
 } from "@/components/ui/typography";
 
-const reveal = typographyVariants({ reveal: "animate", family:"sans", size:'body-s'});
+const reveal = typographyVariants({ reveal: "animate", family:"mono", size:'body-s'});
 const classes = {
   reveal: reveal,
-  exampleItem: `mx-4 w-screen md:mx-20 md:px-20 ${reveal}`
+  code:`my-2 md:my-4 ${reveal}`,
+  exampleItem: `flex flex-col mx-4 w-screen md:mx-20 md:px-20 ${reveal}`
 }
 ---
 
@@ -27,7 +28,7 @@ const classes = {
       class="flex flex-col items-center gap-10 bg-cream font-serif text-grey py-12"
     >
     <div class={classes.exampleItem}>
-      <code class={classes.reveal} >&lt; H1 family="display" padding='lg' &gt;</code>
+      <code class={classes.code} >&lt; H1 family="display" padding='lg' &gt;</code>
       <H1
         family="display"
         size="display"
@@ -38,7 +39,7 @@ const classes = {
       </H1>
     </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H1 padding='lg' &gt;</code>
+        <code class={classes.code} >&lt; H1 padding='lg' &gt;</code>
         <H1
           padding="lg"
           className="px-4 md:px-20 border border-dashed border-cyan-300"
@@ -47,7 +48,7 @@ const classes = {
         </H1>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H1 padding='lg' theme='blue' &gt;</code>
+        <code class={classes.code} >&lt; H1 padding='lg' theme='blue' &gt;</code>
         <H1
           padding="lg"
           theme="blue"
@@ -57,7 +58,7 @@ const classes = {
         </H1>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H1 className='text-purple-500' &gt;</code>
+        <code class={classes.code} >&lt; H1 className='text-purple-500' &gt;</code>
         <H1
           className="text-purple-500 bg-green-bg border border-dashed border-cyan-300"
         >
@@ -65,31 +66,31 @@ const classes = {
         </H1>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H2 &gt;</code>
+        <code class={classes.code} >&lt; H2 &gt;</code>
         <H2>My H2 Title</H2>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H3 &gt;</code>
+        <code class={classes.code} >&lt; H3 &gt;</code>
         <H3>My H3 Title</H3>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H3 theme='blue' weight='bold' size='heading-2' &gt;</code>
+        <code class={classes.code} >&lt; H3 theme='blue' weight='bold' size='heading-2' &gt;</code>
         <H3 theme="blue" weight="bold" size="heading-2">My H3 Title | Bold</H3>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H4 &gt;</code>
+        <code class={classes.code} >&lt; H4 &gt;</code>
         <H4>My H4 Heading</H4>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H5 &gt;</code>
+        <code class={classes.code} >&lt; H5 &gt;</code>
         <H5>My H5 Heading</H5>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; H6 &gt;</code>
+        <code class={classes.code} >&lt; H6 &gt;</code>
         <H6>My H6 Heading</H6>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; P &gt;</code>
+        <code class={classes.code} >&lt; P &gt;</code>
         <P>
           My P Paragraph | Lorem ipsum dolor sit amet consectetur. Aliquam vitae
           massa ultricies cursus. Consequat tempus amet in sit. Interdum tellus
@@ -100,9 +101,9 @@ const classes = {
         </P>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; P family='sans' &gt;</code>
+        <code class={classes.code} >&lt; P family='sans' &gt;</code>
         <P family="sans">
-          My P Paragraph | Bold Lorem ipsum dolor sit amet consectetur. Aliquam
+          My P Paragraph | Sans Lorem ipsum dolor sit amet consectetur. Aliquam
           vitae massa ultricies cursus. Consequat tempus amet in sit. Interdum
           tellus tortor sagittis volutpat eu ac. Amet quis pretium nullam in
           nunc aliquam tincidunt hendrerit donec. At nunc mauris tincidunt ut
@@ -111,7 +112,7 @@ const classes = {
         </P>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; P className='text-orange-700' &gt;</code>
+        <code class={classes.code} >&lt; P className='text-orange-700' &gt;</code>
         <P className="text-orange-700">
           My P Paragraph | Custom color Lorem ipsum dolor sit amet consectetur.
           Aliquam vitae massa ultricies cursus. Consequat tempus amet in sit.
@@ -122,7 +123,7 @@ const classes = {
         </P>
       </div>
       <div class={classes.exampleItem}>
-        <code class={classes.reveal} >&lt; Small &gt;</code>
+        <code class={classes.code} >&lt; Small &gt;</code>
         <Small>
           My Legal small print | Lorem ipsum dolor sit amet consectetur. Aliquam
           vitae massa ultricies cursus. Consequat tempus amet in sit. Interdum
@@ -134,7 +135,7 @@ const classes = {
       </div>
 
       <div class="mx-4 flex flex-col self-start md:mx-20">
-      <code class={classes.reveal} >&lt; Text asChild input h1 &gt;</code>
+      <code class={classes.code} >&lt; Text asChild input h1 &gt;</code>
         <Text asChild>
           <input
             placeholder="My placeholder"
