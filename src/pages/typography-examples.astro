@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  Text,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+  Small,
+  typographyVariants,
+} from "@/components/ui/typography";
+---
+
+<Layout
+  title="Typography test"
+>
+    <main
+      class="flex flex-col items-center gap-10 bg-cream font-serif text-grey py-12"
+    >
+    <div class="mx-4 w-screen md:mx-20 md:px-20">
+      &lt; H1 family="display" padding='lg' &gt;
+      <H1
+        family="display"
+        padding="lg"
+        className="px-4 md:px-20 border border-dashed border-cyan-300"
+      >
+        Page H1 Display Title
+      </H1>
+    </div>
+      <div class="mx-4 w-screen md:mx-20 md:px-20">
+        &lt; H1 padding='lg' &gt;
+        <H1
+          padding="lg"
+          className="px-4 md:px-20 border border-dashed border-cyan-300"
+        >
+          Page H1 Title
+        </H1>
+      </div>
+      <div class="mx-4 w-screen md:mx-20 md:px-20">
+        &lt; H1 padding='lg' theme='blue' &gt;
+        <H1
+          padding="lg"
+          theme="blue"
+          className="px-4 md:px-20 bg-blue-bg border border-dashed border-cyan-300"
+        >
+          Page H1 Title | Blue
+        </H1>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H1 className='text-purple-500' &gt;
+        <H1
+          className="text-purple-500 bg-green-bg border border-dashed border-cyan-300"
+        >
+          H1 | Custom Color
+        </H1>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H2 &gt;
+        <H2>My H2 Title</H2>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H3 &gt;
+        <H3>My H3 Title</H3>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H3 theme='blue' weight='bold' size='heading-2' &gt;
+        <H3 theme="blue" weight="bold" size="heading-2">My H3 Title | Bold</H3>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H4 &gt;
+        <H4>My H4 Heading</H4>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H5 &gt;
+        <H5>My H5 Heading</H5>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; H6 &gt;
+        <H6>My H6 Heading</H6>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; P &gt;
+        <P>
+          My P Paragraph | Lorem ipsum dolor sit amet consectetur. Aliquam vitae
+          massa ultricies cursus. Consequat tempus amet in sit. Interdum tellus
+          tortor sagittis volutpat eu ac. Amet quis pretium nullam in nunc
+          aliquam tincidunt hendrerit donec. At nunc mauris tincidunt ut viverra
+          diam tristique. Nisl massa pellentesque vitae sapien non etiam a.
+          Cursus et aliquet leo eu. Non.
+        </P>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; P family='sans' &gt;
+        <P family="sans">
+          My P Paragraph | Bold Lorem ipsum dolor sit amet consectetur. Aliquam
+          vitae massa ultricies cursus. Consequat tempus amet in sit. Interdum
+          tellus tortor sagittis volutpat eu ac. Amet quis pretium nullam in
+          nunc aliquam tincidunt hendrerit donec. At nunc mauris tincidunt ut
+          viverra diam tristique. Nisl massa pellentesque vitae sapien non etiam
+          a. Cursus et aliquet leo eu. Non.
+        </P>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; P className='text-orange-700' &gt;
+        <P className="text-orange-700">
+          My P Paragraph | Custom color Lorem ipsum dolor sit amet consectetur.
+          Aliquam vitae massa ultricies cursus. Consequat tempus amet in sit.
+          Interdum tellus tortor sagittis volutpat eu ac. Amet quis pretium
+          nullam in nunc aliquam tincidunt hendrerit donec. At nunc mauris
+          tincidunt ut viverra diam tristique. Nisl massa pellentesque vitae
+          sapien non etiam a. Cursus et aliquet leo eu. Non.
+        </P>
+      </div>
+      <div class="mx-4 self-start md:mx-20">
+        &lt; Small &gt;
+        <Small>
+          My Legal small print | Lorem ipsum dolor sit amet consectetur. Aliquam
+          vitae massa ultricies cursus. Consequat tempus amet in sit. Interdum
+          tellus tortor sagittis volutpat eu ac. Amet quis pretium nullam in
+          nunc aliquam tincidunt hendrerit donec. At nunc mauris tincidunt ut
+          viverra diam tristique. Nisl massa pellentesque vitae sapien non etiam
+          a. Cursus et aliquet leo eu. Non.
+        </Small>
+      </div>
+
+      <div class="mx-4 flex flex-col self-start md:mx-20">
+        &lt; Text asChild input h1 &gt;
+        <Text asChild>
+          <input
+            placeholder="My placeholder"
+            class=`${typographyVariants({ tag: "h1" })} py-2 px-12 bg-transparent text-green border-green-1/50 border rounded-full`
+          />
+        </Text>
+      </div>
+    </main>
+</Layout>
