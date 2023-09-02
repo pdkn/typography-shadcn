@@ -139,9 +139,24 @@ const classes = {
         <Text asChild>
           <input
             placeholder="My placeholder"
-            class=`${typographyVariants({ tag: "h1" })} py-2 px-12 bg-transparent text-green border-green-1/50 border rounded-full`
+            class=`${typographyVariants({ size: "heading-1" })} py-2 px-12 bg-transparent text-green border-green-1/50 border rounded-full`
           />
         </Text>
       </div>
+
+      <div class="mx-4 flex flex-col self-start md:mx-20">
+        <code class={classes.code} >&lt; Text tag="address" size="heading-2" &gt;</code>
+          <Text 
+            tag="address"
+            size="heading-2"
+            className="py-2 px-12 text-green border"
+          >
+            Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+            Visit us at:<br>
+            Example.com<br>
+            Box 564, Disneyland<br>
+            USA
+          </Text>
+        </div>
     </main>
 </Layout>

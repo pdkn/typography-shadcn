@@ -3,18 +3,12 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+
+type Tag = keyof JSX.IntrinsicElements;
+
 // variants
 const typographyVariants = cva("", {
   variants: {
-    tag: {
-      h1: "",
-      h2: "",
-      h3: "",
-      h4: "",
-      h5: "",
-      h6: "",
-      p: "",
-    },
     size: {
       display: "text-[50px]/[58px] md:text-[3.875em]/[70px]",
       "heading-1":
@@ -59,7 +53,6 @@ const typographyVariants = cva("", {
     },
   },
   defaultVariants: {
-    tag: "p",
     size: "body",
     family: "serif",
     weight: "normal",
@@ -73,6 +66,7 @@ export interface TypographyProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof typographyVariants> {
   asChild?: boolean;
+  tag?:Tag;
 }
 
 const Text = React.forwardRef<HTMLElement, TypographyProps>(
@@ -102,7 +96,7 @@ const Text = React.forwardRef<HTMLElement, TypographyProps>(
     return (
       <Comp
         className={cn(
-          typographyVariants({ className, size, family, weight, tag, padding, theme }),
+          typographyVariants({ className, size, family, weight, padding, theme }),
         )}
         ref={ref}
         {...props}
