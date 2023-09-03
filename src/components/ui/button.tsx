@@ -23,7 +23,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         linkGreen: "text-green underline font-medium decoration-green decoration-1 underline-offset-2 transition-all hover:text-blue",
-        customTypography: `${typographyVariants({ size: "heading-6", family: "sans"})} ${defaultClasses}`
+        customTypography: `${typographyVariants({ size: "heading-5", family: "sans"})} ${defaultClasses}`
       },
       size: {
         default: "h-10 px-4 py-2",

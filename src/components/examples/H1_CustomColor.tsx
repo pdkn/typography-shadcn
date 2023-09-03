@@ -13,7 +13,7 @@ import {
     return (
         <H1
           theme="blue"
-          reveal="none"
+          padding="none"
           className="text-purple-500 bg-green-bg border border-dashed border-cyan-300"
         >
           Page H1 Title | Custom Colour
