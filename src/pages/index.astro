@@ -6,13 +6,16 @@ import { getEntry } from "astro:content";
 const intro = await getEntry("home", "code");
 const { Content } = await intro.render();
 
-import { H1, P, typographyVariants } from "@/components/ui/typography";
+import { H1, H2, P, typographyVariants } from "@/components/ui/typography";
 import { Button, buttonVariants } from "@/components/ui/button";
+
+const classes = {
+  reveal: `${typographyVariants({ reveal: "animate" })}`,
+};
 ---
 
 <Layout title="Typography for Shadcn UI.">
   <HeaderWithNav hasMobileAside={false} />
-
   <main
     class="flex flex-col items-center m-auto md:w-[640px] w-[calc(100vw - 4rem)] px-8 pb-12"
   >
@@ -20,22 +23,25 @@ import { Button, buttonVariants } from "@/components/ui/button";
       Concept Typography lib to help conform to a Design System
     </H1>
     <P>
-      This is a POC to help enforce text conform to a Design System by setting
-      default values for; font-family, size, line-height, kerning and more. A
-      good design System has thought through a lot of font properties and some
-      not so obvious (looking at you lining-nums & other font variants ). This
-      can often get complex where you might start setting all the values on a
-      root element of pages. But as a site develops and changes, managing all
-      the default classes for something as simple as a p tag can get complex.
-      This conforms to Shadcn's styling pattern using twMerge() and gives one
-      place to manage your typography. The defaults allow for change based on tw
-      responsive breakpoints. This also separates HTML5 tag symantics from
-      display logic, so you can still have the correct header tags but override
-      size or anything else based on the design context.
+      This is a POC to help text styles conform to a Design System by setting
+      default values for; font-family, size, line-height, kerning and more.
+      <br /><br />
+      A good design System has thought through a lot of font properties, some not
+      so obvious (looking at you lining-nums & other font variants ). This can often
+      get complex. You might start setting all the values on a root element of pages
+      or in a Layout. But as a site develops, grows and changes, managing all the
+      text style classes for something as simple as a p tag can get verbose.
+      <br /><br />
+      This concdpt conforms to Shadcn's styling pattern using twMerge(). It gives
+      one place to manage your typography. The defaults allow for change based on
+      tw responsive breakpoints. This also separates HTML5 tag symantics from display
+      logic, so you can still have the correct header tags but override size or anything
+      else based on the design context.
+      <br /><br />
+      you can change values in the global.css vars which is influenced by Radix-ui
+      typography.
     </P>
-    <div
-      class={`py-12 ${typographyVariants({reveal: "animate"})}`}
-    >
+    <div class={`py-12 ${classes.reveal}`}>
       <Button className="pt-12" asChild>
         <a
           href="/examples"
@@ -45,17 +51,23 @@ import { Button, buttonVariants } from "@/components/ui/button";
         </a>
       </Button>
     </div>
-    <P
-      className={`${typographyVariants({reveal: "animate"})}`}
-    >
-      Note - The order of options for typographyVariants() is set to make typography
-      as extendable as possible via overwrites so className classes alway take presidence.
-      The idea is you add the @/components/ui/typography class to your Shadcn project
-      and then ammend to your needs (along with tailwind.config and global.css vars),
-      you can also fold it into other Shadcn components too (@see @/components/ui/button.tsx).
+    <P className={`${classes.reveal}`}>
+      Note - The order of options for typographyVariants() is set to make
+      typography as extendable as possible via overwrites so className classes
+      alway take presidence. The idea is you add the @/components/ui/typography
+      class to your Shadcn project and then ammend to your needs (along with
+      tailwind.config and global.css vars), you can also fold it into other
+      Shadcn components too (@see @/components/ui/button.tsx).
       <br /><br />
       Aside from all that you can add default animation efffects so that text can
-      animate in when it hits the view-port. (@see Layout.astro script) ( Not working at moment )
+      animate in when it hits the view-port. (@see Layout.astro script) ( Not working
+      at moment )
+    </P>
+
+    <H2 className={`${classes.reveal}`}>Roadmap</H2>
+    <P className={`${classes.reveal}`}>
+      After only just discovering the radix-ui implementation after building this.
+      It would make sense to try an rely on it's classes as primatives for this.
     </P>
 
     <!-- <a
@@ -67,7 +79,6 @@ import { Button, buttonVariants } from "@/components/ui/button";
       })}`}
       >Examples
     </a> -->
-
   </main>
 </Layout>
 <style></style>
