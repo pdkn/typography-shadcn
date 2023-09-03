@@ -199,13 +199,13 @@ export function ComponentExample({
                 </div>
                 <TabsContent value="preview" className="rounded-md border bg-slate-50">
                 <div
-                    className="flex px-4 w-full md:px-8 min-h-[350px] justify-center p-10 items-center"
+                    className="flex px-2 w-full md:px-8 min-h-[350px] justify-center py-10 items-center"
                 >
                     {example.tsx}
                 </div>
                 </TabsContent>
                 <TabsContent value="code" className=" bg-zinc-900">
-                <div className="flex min-h-[350px] justify-center p-10 items-center">
+                <div className="flex px-2 w-full max-w-screen md:px-8 min-h-[350px] justify-center py-10 items-center">
                     <pre><code>{example.code}</code></pre>      
                 </div>
                 </TabsContent>
