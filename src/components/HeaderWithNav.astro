@@ -6,11 +6,20 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { MobileSheetAside } from "@/components/MobileSheetAside"
 
+interface Props {
+  hasMobileAside?: boolean;
+}
+
+const {
+  hasMobileAside = false,
+} = Astro.props;
+
 ---
 <header class="bg-zinc-900">
     <nav
         class="flex items-center justify-end gap-3 w-screen py-8 px-6 md:px-16"
     >
+    {hasMobileAside && <MobileSheetAside client:load />}
     <H1 family="display" className="px-4 md:px-2 flex-grow basis-1 text-center">
       <a href="/"><span class="text-gradient">Typography for Shadcn UI</span></a>
       </H1>
@@ -26,7 +35,5 @@ import { MobileSheetAside } from "@/components/MobileSheetAside"
         </a>
       </div>
     </nav>
-
-    <MobileSheetAside client:load />
     <Separator />
 </header>

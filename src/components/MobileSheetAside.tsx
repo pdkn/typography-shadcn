@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
- 
+import { BookOpen } from 'lucide-react';
 import {SideNav} from "@/components/SideNav"
 
 export function MobileSheetAside() {
@@ -23,7 +23,7 @@ export function MobileSheetAside() {
     <div className=" md:hidden">
     <Sheet open={$open} onOpenChange={open.set}>
         <SheetTrigger asChild>
-          <Button variant="outline">Open</Button>
+          <Button variant="outline">< BookOpen/></Button>
         </SheetTrigger>
         <SheetContent side="left">
           <SideNav />
