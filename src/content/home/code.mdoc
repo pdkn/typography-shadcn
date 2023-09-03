@@ -4,35 +4,29 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+type Tag = keyof JSX.IntrinsicElements;
+
 // variants
 const typographyVariants = cva("", {
-variants: {
-    tag: {
-    h1: "",
-    h2: "",
-    h3: "",
-    h4: "",
-    h5: "",
-    h6: "",
-    p: "",
-    },
+  variants: {
     size: {
-    display: "text-[50px]/[58px] md:text-[62px]/[70px]",
-    "heading-1":
+      display: "text-[50px]/[58px] md:text-[3.875em]/[70px]",
+      "heading-1":
         "text-[32px]/[36px] tracking-tight md:tracking-normal md:text-[48px]/[58px]",
-    "heading-2": "text-[32px]/tight md:text-[40px]/tight",
-    "heading-3": "text-[25px]/tight md:text-[32px]/[36px]",
-    "heading-4": "text-[25px]/tight",
-    "heading-5": "text-[20px]/[28px]",
-    "heading-6": "text-[18px]/tight",
-    body: "text-[16px]/[22px] font-light",
-    "body-s": "text-[13px]/tight font-light",
-    "body-xs": "text-[10px]/tight font-light",
+      "heading-2": "text-[32px]/tight md:text-[40px]/tight",
+      "heading-3": "text-[25px]/tight md:text-[32px]/[36px]",
+      "heading-4": "text-[25px]/tight",
+      "heading-5": "text-[20px]/[28px]",
+      "heading-6": "text-[18px]/tight",
+      body: "text-[16px]/[22px] font-light",
+      "body-s": "text-[13px]/tight font-light",
+      "body-xs": "text-[10px]/tight font-light",
     },
     family: {
-    serif:  "font-serif",
-    sans: "font-sans",
-    display: "font-display",
+      serif:  "font-serif",
+      sans: "font-sans",
+      display: "font-display",
+      mono: "font-mono",
     },
     weight: {
         thin:   "font-thin",
@@ -41,56 +35,56 @@ variants: {
         bold: "font-bold",
     },
     padding: {
-    none: "",
-    sm: "py-2 md:py-4",
-    md: "py-[15px] md:py-[30px]",
-    lg: "py-[30px] md:py-[72px]",
+      none: "",
+      sm: "py-2 md:py-4",
+      md: "py-[15px] md:py-[30px]",
+      lg: "py-[30px] md:py-[72px]",
     },
     theme: {
-    cream: "text-cream",
-    green: "text-green",
-    blue: "text-blue",
-    grey: "text-grey",
-    charcoal: "text-charcoal",
+      cream: "text-cream",
+      green: "text-green",
+      blue: "text-blue",
+      grey: "text-grey",
+      charcoal: "text-charcoal",
     },
     reveal: {
-    animate: "animate-in fade-in slide-in-from-bottom-10 duration-660 ease-in paused",
-    none: "",
+      animate: "animate-in fade-in slide-in-from-bottom-10 duration-660 ease-in paused",
+      none: "",
     },
-},
-defaultVariants: {
-    tag: "p",
+  },
+  defaultVariants: {
     size: "body",
     family: "serif",
     weight: "normal",
     padding: "none",
     theme: "green",
     reveal: "animate",
-},
+  },
 });
 
 export interface TypographyProps
-extends React.HTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof typographyVariants> {
-asChild?: boolean;
+  asChild?: boolean;
+  tag?:Tag;
 }
 
-const Text = React.forwardRef<HTMLElement, TypographyProps>(
-(
+const StyledElement = React.forwardRef<HTMLElement, TypographyProps>(
+  (
     {
-    tag,
-    size,
-    family,
-    weight,
-    padding,
-    theme,
-    asChild = false,
-    className,
-    children,
-    ...props
+      tag,
+      size,
+      family,
+      weight,
+      padding,
+      theme,
+      asChild = false,
+      className,
+      children,
+      ...props
     },
     ref,
-) => {
+  ) => {
     let templateTag = "p";
     if (tag) templateTag = tag;
 
@@ -100,71 +94,71 @@ const Text = React.forwardRef<HTMLElement, TypographyProps>(
     // is important to make typography as extendable as possilbe
     // via overwrites
     return (
-    <Comp
+      <Comp
         className={cn(
-        typographyVariants({ className, size, family, weight, tag, padding, theme }),
+          typographyVariants({ className, size, family, weight, padding, theme }),
         )}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Comp>
+      </Comp>
     );
-},
+  },
 );
 
 const H1 = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family, weight, children, ...props }, ref) => {
+  ({ tag, size, family, weight, children, ...props }, ref) => {
     return (
-    <Text
+      <StyledElement
         tag="h1"
         size={size ? size : "heading-1"}
         family={family ? family : "serif"}
         weight={weight ? weight : "bold"}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const H2 = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family,weight, children, ...props }, ref) => {
+  ({ tag, size, family,weight, children, ...props }, ref) => {
     return (
-    <Text
+      <StyledElement
         tag="h2"
         size={size ? size : "heading-2"}
         family={family ? family : "serif"}
         weight={weight ? weight : "medium"}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const H3 = React.forwardRef<HTMLElement, TypographyProps>(
-(
+  (
     { tag, size, family, weight, padding, theme, className = "", children, ...props },
     ref,
-) => {
+  ) => {
     let color = "text-green";
     switch (theme) {
-    case "blue":
+      case "blue":
         color = "text-blue";
         break;
-    case "charcoal":
+      case "charcoal":
         color = "text-charcoal";
         break;
-    default:
+      default:
         break;
     }
     return (
-    <Text
+      <StyledElement
         tag="h3"
         size={size ? size : "heading-3"}
         family={family ? family : "serif"}
@@ -173,18 +167,18 @@ const H3 = React.forwardRef<HTMLElement, TypographyProps>(
         className={cn(color, className)}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const H4 = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size,family, weight, theme, className, children, ...props }, ref) => {
+  ({ tag, size,family, weight, theme, className, children, ...props }, ref) => {
     let color = "text-green";
     return (
-    <Text
+      <StyledElement
         tag="h4"
         size={size ? size : "heading-4"}
         family={family ? family : "serif"}
@@ -192,18 +186,18 @@ const H4 = React.forwardRef<HTMLElement, TypographyProps>(
         className={cn(color, className)}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const H5 = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
+  ({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
     let color = "text-green";
     return (
-    <Text
+      <StyledElement
         tag="h5"
         size={size ? size : "heading-5"}
         family={family ? family : "serif"}
@@ -211,18 +205,18 @@ const H5 = React.forwardRef<HTMLElement, TypographyProps>(
         className={cn(color, className)}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const H6 = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
+  ({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
     let color = "text-green";
     return (
-    <Text
+      <StyledElement
         tag="h6"
         size={size ? size : "heading-6"}
         family={family ? family : "serif"}
@@ -230,17 +224,17 @@ const H6 = React.forwardRef<HTMLElement, TypographyProps>(
         className={cn(color, className)}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const P = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
+  ({ tag, size, family, weight, theme, className, children, ...props }, ref) => {
     return (
-    <Text
+      <StyledElement
         tag="p"
         size={size ? size : "body"}
         family={family ? family : "serif"}
@@ -249,17 +243,17 @@ const P = React.forwardRef<HTMLElement, TypographyProps>(
         className={className}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
 const Small = React.forwardRef<HTMLElement, TypographyProps>(
-({ tag, size, family, weight, theme, children, ...props }, ref) => {
+  ({ tag, size, family, weight, theme, children, ...props }, ref) => {
     return (
-    <Text
+      <StyledElement
         tag="p"
         size={size ? size : "body-s"}
         family={family ? family : "serif"}
@@ -267,14 +261,14 @@ const Small = React.forwardRef<HTMLElement, TypographyProps>(
         theme={theme ? theme : "grey"}
         ref={ref}
         {...props}
-    >
+      >
         {children}
-    </Text>
+      </StyledElement>
     );
-},
+  },
 );
 
-Text.displayName = "text";
+StyledElement.displayName = "styled element";
 H1.displayName = "h1";
 H2.displayName = "h2";
 H3.displayName = "h3";
@@ -284,5 +278,6 @@ H6.displayName = "h6";
 P.displayName = "p";
 Small.displayName = "small";
 
-export { Text, H1, H2, H3, H4, H5, H6, P, Small, typographyVariants };
+export { StyledElement, H1, H2, H3, H4, H5, H6, P, Small, typographyVariants };
+
 ```

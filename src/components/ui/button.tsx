@@ -1,15 +1,19 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
+import {
+  typographyVariants,
+} from "@/components/ui/typography";
 
 import { cn } from "@/lib/utils"
 
+const defaultClasses = "bg-primary text-primary-foreground hover:bg-primary/90"
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: defaultClasses,
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -18,7 +22,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        linkGreen: "text-green underline font-medium decoration-green decoration-1 underline-offset-2 transition-all hover:text-blue"
+        linkGreen: "text-green underline font-medium decoration-green decoration-1 underline-offset-2 transition-all hover:text-blue",
+        customTypography: `${typographyVariants({ size: "heading-4", family: "sans"})} ${defaultClasses}`
       },
       size: {
         default: "h-10 px-4 py-2",

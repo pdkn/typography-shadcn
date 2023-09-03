@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeaderWithNav from "@/components/HeaderWithNav.astro"
 import {
-  Text,
+  StyledElement,
   H1,
   H2,
   H3,
@@ -24,6 +25,7 @@ const classes = {
 <Layout
   title="Typography test"
 >
+  <HeaderWithNav />
     <main
       class="flex flex-col items-center gap-10 font-serif text-grey py-12"
     >
@@ -135,28 +137,26 @@ const classes = {
       </div>
 
       <div class="mx-4 flex flex-col self-start md:mx-20">
-      <code class={classes.code} >&lt; Text asChild input h1 &gt;</code>
-        <Text asChild>
+      <code class={classes.code} >&lt; StyledElement asChild input h1 &gt;</code>
+        <StyledElement asChild>
           <input
             placeholder="My placeholder"
             class=`${typographyVariants({ size: "heading-1" })} py-2 px-12 bg-transparent text-green border-green-1/50 border rounded-full`
           />
-        </Text>
+        </StyledElement>
       </div>
 
       <div class="mx-4 flex flex-col self-start md:mx-20">
-        <code class={classes.code} >&lt; Text tag="address" size="heading-2" &gt;</code>
-          <Text 
+        <code class={classes.code} >&lt; StyledElement tag="address" size="heading-2" &gt;</code>
+          <StyledElement 
             tag="address"
-            size="heading-2"
-            className="py-2 px-12 text-green border"
+            size="heading-4"
+            className="py-2 px-2 text-green border"
           >
-            Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
-            Visit us at:<br>
-            Example.com<br>
+            Written by <a href="www.example.com" class="underline">Jon Doe</a>.<br>
             Box 564, Disneyland<br>
             USA
-          </Text>
+          </StyledElement>
         </div>
     </main>
 </Layout>
