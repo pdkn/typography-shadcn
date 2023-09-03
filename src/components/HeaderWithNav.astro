@@ -1,13 +1,11 @@
 ---
 import {
   H1,
-  H2,
-  P,
-  Small,
   typographyVariants,
 } from "@/components/ui/typography";
-import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { MobileSheetAside } from "@/components/MobileSheetAside"
+
 ---
 <header class="bg-zinc-900">
     <nav
@@ -28,5 +26,7 @@ import { Separator } from "@/components/ui/separator";
         </a>
       </div>
     </nav>
+
+    <MobileSheetAside client:load />
     <Separator />
 </header>

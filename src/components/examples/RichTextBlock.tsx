@@ -228,12 +228,12 @@ export function RichTextBlock() {
             </tbody>
           </table>
         </div>
-        <P padding="sm">
+        <P>
           The king, seeing how much happier his subjects were, realized the error
           of his ways and repealed the joke tax. Jokester was declared a hero, and
           the kingdom lived happily ever after.
         </P>
-        <P padding="sm">
+        <P>
           The moral of the story is: never underestimate the power of a good laugh
           and always be careful of bad ideas.
         </P>
