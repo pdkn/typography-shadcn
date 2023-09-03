@@ -9,29 +9,30 @@ type Tag = keyof JSX.IntrinsicElements;
 const typographyVariants = cva("", {
   variants: {
     size: {
-      display: "text-[50px]/[58px] md:text-[3.875em]/[70px]",
+      display:
+        "text-[calc(var(--font-size-8)*var(--heading-font-size-adjust))]/[var(--heading-line-height-8)] tracking-[calc(var(--letter-spacing-8)+var(--heading-letter-spacing))] md:text-[calc(var(--font-size-9)*var(--heading-font-size-adjust))]/[var(--heading-line-height-9)] md:tracking-[calc(var(--letter-spacing-9)+var(--heading-letter-spacing))]",
       "heading-1":
-        "text-[32px]/[36px] tracking-tight md:tracking-normal md:text-[48px]/[58px]",
-      "heading-2": "text-[32px]/tight md:text-[40px]/tight",
-      "heading-3": "text-[25px]/tight md:text-[32px]/[36px]",
-      "heading-4": "text-[25px]/tight",
-      "heading-5": "text-[20px]/[28px]",
-      "heading-6": "text-[18px]/tight",
-      body: "text-[16px]/[22px] font-light",
-      "body-s": "text-[13px]/tight font-light",
-      "body-xs": "text-[10px]/tight font-light",
+        "text-[calc(var(--font-size-7)*var(--heading-font-size-adjust))]/[var(--heading-line-height-7)] tracking-[calc(var(--letter-spacing-7) + var(--heading-letter-spacing))] md:text-[calc(var(--font-size-8)*var(--heading-font-size-adjust))]/[var(--heading-line-height-8)] md:tracking-[calc(var(--letter-spacing-8)+var(--heading-letter-spacing))]",
+      "heading-2":  "text-[calc(var(--font-size-6)*var(--heading-font-size-adjust))]/[var(--heading-line-height-6)] tracking-[calc(var(--letter-spacing-6)+var(--heading-letter-spacing))] md:text-[calc(var(--font-size-7)*var(--heading-font-size-adjust))]/[var(--heading-line-height-7)] md:tracking-[calc(var(--letter-spacing-7)+var(--heading-letter-spacing))]",
+      "heading-3":  "text-[calc(var(--font-size-5)*var(--heading-font-size-adjust))]/[var(--heading-line-height-5)] tracking-[calc(var(--letter-spacing-5)+var(--heading-letter-spacing))] md:text-[calc(var(--font-size-6)*var(--heading-font-size-adjust))]/[var(--heading-line-height-6)] md:tracking-[calc(var(--letter-spacing-6)+var(--heading-letter-spacing))]",
+      "heading-4":  "text-[calc(var(--font-size-4)*var(--heading-font-size-adjust))]/[var(--heading-line-height-4)] tracking-[calc(var(--letter-spacing-4)+var(--heading-letter-spacing))] md:text-[calc(var(--font-size-5)*var(--heading-font-size-adjust))]/[var(--heading-line-height-5)] md:tracking-[calc(var(--letter-spacing-5)+var(--heading-letter-spacing))]",
+      "heading-5":  "text-[calc(var(--font-size-4)*var(--heading-font-size-adjust))]/[var(--heading-line-height-4)] tracking-[calc(var(--letter-spacing-4)+var(--heading-letter-spacing))]",
+      "heading-6": "text-[calc(var(--font-size-3)*var(--heading-font-size-adjust))]/[var(--heading-line-height-3)] tracking-[calc(var(--letter-spacing-3)+var(--heading-letter-spacing))]",
+      body: "text-[var(--font-size-3)]/[var(--line-height-3)] tracking-[var(--letter-spacing-3)]",
+      "body-s": "text-[var(--font-size-2)]/[var(--line-height-2)] tracking-[var(--letter-spacing-2)]",
+      "body-xs": "text-[var(--font-size-1)]/[var(--line-height-1)] tracking-[var(--letter-spacing-1)]",
     },
     family: {
-      serif:  "font-serif",
+      serif: "font-serif",
       sans: "font-sans",
       display: "font-display",
       mono: "font-mono",
     },
     weight: {
-        thin:   "font-thin",
-        normal: "font-light",
-        medium: "font-medium",
-        bold: "font-bold",
+      thin: "font-thin",
+      normal: "font-light",
+      medium: "font-medium",
+      bold: "font-bold",
     },
     padding: {
       none: "",
@@ -47,7 +48,8 @@ const typographyVariants = cva("", {
       charcoal: "text-charcoal",
     },
     reveal: {
-      animate: "animate-in fade-in slide-in-from-bottom-10 duration-660 ease-in paused",
+      animate:
+        "animate-in fade-in slide-in-from-bottom-10 duration-660 ease-in paused",
       none: "",
     },
   },
@@ -65,7 +67,7 @@ export interface TypographyProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof typographyVariants> {
   asChild?: boolean;
-  tag?:Tag;
+  tag?: Tag;
 }
 
 const StyledElement = React.forwardRef<HTMLElement, TypographyProps>(
@@ -83,20 +85,28 @@ const StyledElement = React.forwardRef<HTMLElement, TypographyProps>(
       children,
       ...props
     },
-    ref,
+    ref
   ) => {
     let templateTag = "p";
     if (tag) templateTag = tag;
 
     const Comp = asChild ? Slot : templateTag;
-    
+
     // NOTE the order of options for typographyVariants()
     // is important to make typography as extendable as possilbe
     // via overwrites
     return (
       <Comp
         className={cn(
-          typographyVariants({ className, size, family, weight, padding, theme, reveal }),
+          typographyVariants({
+            className,
+            size,
+            family,
+            weight,
+            padding,
+            theme,
+            reveal,
+          })
         )}
         ref={ref}
         {...props}
@@ -104,9 +114,8 @@ const StyledElement = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </Comp>
     );
-  },
+  }
 );
-
 
 const H1 = React.forwardRef<HTMLElement, TypographyProps>(
   ({ tag, size, family, weight, padding, theme, children, ...props }, ref) => {
@@ -124,7 +133,7 @@ const H1 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const H2 = React.forwardRef<HTMLElement, TypographyProps>(
@@ -143,15 +152,11 @@ const H2 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const H3 = React.forwardRef<HTMLElement, TypographyProps>(
-  (
-    { tag, size, family, weight, padding, theme, children, ...props },
-    ref,
-  ) => {
-    
+  ({ tag, size, family, weight, padding, theme, children, ...props }, ref) => {
     return (
       <StyledElement
         tag="h3"
@@ -166,7 +171,7 @@ const H3 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const H4 = React.forwardRef<HTMLElement, TypographyProps>(
@@ -184,7 +189,7 @@ const H4 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const H5 = React.forwardRef<HTMLElement, TypographyProps>(
@@ -202,7 +207,7 @@ const H5 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const H6 = React.forwardRef<HTMLElement, TypographyProps>(
@@ -220,7 +225,7 @@ const H6 = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const P = React.forwardRef<HTMLElement, TypographyProps>(
@@ -239,7 +244,7 @@ const P = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 const Small = React.forwardRef<HTMLElement, TypographyProps>(
@@ -257,7 +262,7 @@ const Small = React.forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledElement>
     );
-  },
+  }
 );
 
 StyledElement.displayName = "styled element";

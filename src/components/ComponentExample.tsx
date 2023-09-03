@@ -27,6 +27,14 @@ import {H1_Theme, codeStringH1_Theme} from "@/components/examples/H1_Theme"
 import {H1_CustomColor, codeStringH1_CustomColor} from "@/components/examples/H1_CustomColor"
 // h2
 import {H2_Basic, codeStringH2_Basic} from "@/components/examples/H2_Basic"
+import {H3_Basic, codeStringH3_Basic} from "@/components/examples/H3_Basic"
+import {H4_Basic, codeStringH4_Basic} from "@/components/examples/H4_Basic"
+import {H5_Basic, codeStringH5_Basic} from "@/components/examples/H5_Basic"
+import {H6_Basic, codeStringH6_Basic} from "@/components/examples/H6_Basic"
+
+import {P_Basic, codeStringP_Basic} from "@/components/examples/P_Basic"
+import {Span_Basic, codeStringSpan_Basic} from "@/components/examples/Span_Basic"
+import {ComingSoon, codeStringComingSoon} from "@/components/examples/ComingSoon"
 
 const h1Examples = [
     {
@@ -50,7 +58,6 @@ const h1Examples = [
         description: "Sometimes you have to breakout of the design system constraints and add something custom. className classes take presidence so you're always in complete control",
     },
 ]
-
 const h2Examples = [
     {
         tsx: <H2_Basic/>, 
@@ -58,6 +65,58 @@ const h2Examples = [
         description: "simple implement default styles for a h2 tag ",
     }
 ]
+const h3Examples = [
+    {
+        tsx: <H3_Basic/>, 
+        code:codeStringH3_Basic,
+        description: "simple implement default styles for a h3 tag ",
+    }
+]
+const h4Examples = [
+    {
+        tsx: <H4_Basic/>, 
+        code:codeStringH4_Basic,
+        description: "simple implement default styles for a h4 tag ",
+    }
+]
+const h5Examples = [
+    {
+        tsx: <H5_Basic/>, 
+        code:codeStringH5_Basic,
+        description: "simple implement default styles for a h5 tag ",
+    }
+]
+const h6Examples = [
+    {
+        tsx: <H6_Basic/>, 
+        code:codeStringH6_Basic,
+        description: "simple implement default styles for a h6 tag ",
+    }
+]
+const pExamples = [
+    {
+        tsx: <P_Basic/>, 
+        code:codeStringP_Basic,
+        description: "simple implement default styles for a p tag ",
+    }
+]
+
+const spanExamples = [
+    {
+        tsx: <Span_Basic/>, 
+        code:codeStringSpan_Basic,
+        description: "A custom span element with styling",
+    }
+]
+
+const comingSoonExamples = [
+    {
+        tsx: <ComingSoon/>, 
+        code:codeStringComingSoon,
+        description: "coming soon...",
+    }
+]
+
 
 interface ComponentExampleProps extends React.HTMLAttributes<HTMLDivElement> {
 
@@ -86,7 +145,26 @@ export function ComponentExample({
         case "h2":
             examples = h2Examples
           break;
+        case "h3":
+            examples = h3Examples
+          break;
+        case "h4":
+            examples = h4Examples
+          break;
+        case "h5":
+            examples = h5Examples
+          break;
+        case "h6":
+            examples = h6Examples
+          break;
+        case "p":
+          examples = pExamples
+        break;
+        case "span":
+          examples = spanExamples
+        break;
         default:
+        examples = comingSoonExamples
           break;
     }
 
