@@ -35,9 +35,9 @@ const typographyVariants = cva("", {
     },
     padding: {
       none: "",
-      sm: "py-2 md:py-4",
+      sm: "py-1 md:py-2",
       md: "py-[15px] md:py-[30px]",
-      lg: "py-[30px] md:py-[72px]",
+      lg: "py-[22px] md:py-[44px]",
     },
     theme: {
       cream: "text-cream",
@@ -224,13 +224,14 @@ const H6 = React.forwardRef<HTMLElement, TypographyProps>(
 );
 
 const P = React.forwardRef<HTMLElement, TypographyProps>(
-  ({ tag, size, family, weight, theme, children, ...props }, ref) => {
+  ({ tag, size, family, weight, padding, theme, children, ...props }, ref) => {
     return (
       <StyledElement
         tag="p"
         size={size ? size : "body"}
         family={family ? family : "serif"}
         weight={weight ? weight : "normal"}
+        padding={padding ? padding : "sm"}
         theme={theme ? theme : "grey"}
         ref={ref}
         {...props}

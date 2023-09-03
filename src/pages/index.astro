@@ -6,11 +6,7 @@ import { getEntry } from "astro:content";
 const intro = await getEntry("home", "code");
 const { Content } = await intro.render();
 
-import {
-  H1,
-  P,
-  typographyVariants,
-} from "@/components/ui/typography";
+import { H1, P, typographyVariants } from "@/components/ui/typography";
 import { Button, buttonVariants } from "@/components/ui/button";
 ---
 
@@ -35,15 +31,16 @@ import { Button, buttonVariants } from "@/components/ui/button";
       place to manage your typography. The defaults allow for change based on tw
       responsive breakpoints. This also separates HTML5 tag symantics from
       display logic, so you can still have the correct header tags but override
-      size or anything else based on the design context. Note - The order of
-      options for typographyVariants() is set to make typography as extendable
-      as possible via overwrites so className classes alway take presidence. The
-      idea is you add the @/components/ui/typography class to your Shadcn
-      project and then ammend to your needs (along with tailwind.config and
-      global.css vars), you can also fold it into other Shadcn components too
-      (@see @/components/ui/button.tsx). Aside from all that you can add default
-      animation efffects so that text can animate in when it hits the view-port.
-      (@see Layout.astro script)
+      size or anything else based on the design context.
+      <br /><br />
+      Note - The order of options for typographyVariants() is set to make typography
+      as extendable as possible via overwrites so className classes alway take presidence.
+      The idea is you add the @/components/ui/typography class to your Shadcn project
+      and then ammend to your needs (along with tailwind.config and global.css vars),
+      you can also fold it into other Shadcn components too (@see @/components/ui/button.tsx).
+      <br /><br />
+      Aside from all that you can add default animation efffects so that text can
+      animate in when it hits the view-port. (@see Layout.astro script) ( Not working at moment )
     </P>
 
     <!-- <a

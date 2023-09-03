@@ -26,44 +26,47 @@ const { title } = Astro.props;
 	</body>
 </html>
 <script>
-	// ADD REVEAL EFFECT
-	const effectEls: NodeList | null =
-	  document.querySelectorAll(".slide-in-from-bottom-10");
+	window.onload = () => {
+		console.log("WINDOW LOADED")
+		// ADD REVEAL EFFECT
+		const effectEls: NodeList | null =
+		document.querySelectorAll(".slide-in-from-bottom-10");
 
-	const callback = (
-	  entries: IntersectionObserverEntry[],
-	  observer: IntersectionObserver,
-	) => {
-	  entries.forEach((entry) => {
-		if (entry.isIntersecting) {
-		  entry.target.classList.remove("paused");
-		  entry.target.classList.add("running");
+		const callback = (
+		entries: IntersectionObserverEntry[],
+		observer: IntersectionObserver,
+		) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+			entry.target.classList.remove("paused");
+			entry.target.classList.add("running");
 
-		  observer.unobserve(entry.target);
+			observer.unobserve(entry.target);
+			}
+		});
+		};
+
+		const options: IntersectionObserverInit = {};
+		if (effectEls) {
+		const myObserver: IntersectionObserver = new IntersectionObserver(
+			callback,
+			options,
+		);
+		effectEls.forEach((el: Node) => {
+			myObserver.observe(el as Element);
+		});
 		}
-	  });
-	};
 
-	const options: IntersectionObserverInit = {};
-	if (effectEls) {
-	  const myObserver: IntersectionObserver = new IntersectionObserver(
-		callback,
-		options,
-	  );
-	  effectEls.forEach((el: Node) => {
-		myObserver.observe(el as Element);
-	  });
+		// PREVENT WIDOW WORDS ON LINES
+		document.querySelectorAll("p, .no-widow-word").forEach(function (para) {
+		var text = para.innerHTML;
+		var words = text.trim().split(/\s+/);
+
+		// Only proceed if there is more than one word
+		if (words.length > 1) {
+			words[words.length - 2] += "&nbsp;" + words.pop();
+			para.innerHTML = words.join(" ");
+		}
+		});
 	}
-
-	// PREVENT WIDOW WORDS ON LINES
-	document.querySelectorAll("p, .no-widow-word").forEach(function (para) {
-	  var text = para.innerHTML;
-	  var words = text.trim().split(/\s+/);
-
-	  // Only proceed if there is more than one word
-	  if (words.length > 1) {
-		words[words.length - 2] += "&nbsp;" + words.pop();
-		para.innerHTML = words.join(" ");
-	  }
-	});
 </script>
