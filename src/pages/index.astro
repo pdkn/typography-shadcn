@@ -32,13 +32,13 @@ const classes = {
       or in a Layout. But as a site develops, grows and changes, managing all the
       text style classes for something as simple as a p tag can get verbose.
       <br /><br />
-      This concdpt conforms to Shadcn's styling pattern using twMerge(). It gives
+      This concept conforms to Shadcn's styling pattern using twMerge(). It gives
       one place to manage your typography. The defaults allow for change based on
-      tw responsive breakpoints. This also separates HTML5 tag symantics from display
+      tw responsive breakpoints. This separates HTML5 tag semantics from style
       logic, so you can still have the correct header tags but override size or anything
       else based on the design context.
       <br /><br />
-      you can change values in the global.css vars which is influenced by Radix-ui
+      You can change values in the global.css vars which is influenced by radix-ui
       typography.
     </P>
     <div class={`py-12 ${classes.reveal}`}>
@@ -67,7 +67,7 @@ const classes = {
     <H2 className={`${classes.reveal}`}>Roadmap</H2>
     <ul class={`ml-6 list-disc [&>li]:mt-2 ${classes.reveal}`}>
       <li>After only just discovering the radix-ui implementation after building this.
-        It would make sense to try an rely on it's classes as primatives for this.</li>
+        It would make sense to try an rely on it's classes as primatives for this under the hood.</li>
       <li>Make more examples</li>
       <li>Fix reveal animation effect for React client:load components</li>
       <li>Look to implement dynamic type scale options via <a href="ttps://github.com/cwsdigital/tailwind-utopia" class="underline">tailwind-utopia</a> </li>
