@@ -32,7 +32,22 @@ import { Button, buttonVariants } from "@/components/ui/button";
       responsive breakpoints. This also separates HTML5 tag symantics from
       display logic, so you can still have the correct header tags but override
       size or anything else based on the design context.
-      <br /><br />
+    </P>
+    <div
+      class={`py-12 ${typographyVariants({reveal: "animate"})}`}
+    >
+      <Button className="pt-12" asChild>
+        <a
+          href="/examples"
+          class={`${buttonVariants({ variant: "customTypography" })}`}
+        >
+          Examples
+        </a>
+      </Button>
+    </div>
+    <P
+      className={`${typographyVariants({reveal: "animate"})}`}
+    >
       Note - The order of options for typographyVariants() is set to make typography
       as extendable as possible via overwrites so className classes alway take presidence.
       The idea is you add the @/components/ui/typography class to your Shadcn project
@@ -53,30 +68,6 @@ import { Button, buttonVariants } from "@/components/ui/button";
       >Examples
     </a> -->
 
-    <div
-      class={`pt-12 ${typographyVariants({
-        reveal: "animate",
-      })}`}
-    >
-      <Button className="pt-12" asChild>
-        <a
-          href="/examples"
-          class={`${buttonVariants({ variant: "customTypography" })}`}
-        >
-          Examples
-        </a>
-      </Button>
-    </div>
-
-    <div
-      class={`hidden md:block code mt-12 text-left ${typographyVariants({
-        reveal: "animate",
-      })}`}
-    >
-      <!-- <Small theme="grey">
-        <Content />
-      </Small> -->
-    </div>
   </main>
 </Layout>
 <style></style>
